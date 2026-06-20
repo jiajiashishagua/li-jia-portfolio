@@ -7,7 +7,7 @@ const baseProjects = {
     description:
       "入职 3 个月完成精品短剧创作 5 部，其中 3 部上线 ReelShort、TikTok 等平台，2 部播放量破百万。熟悉海外短剧平台的内容节奏、画面标准与传播反馈。",
     details: [
-      ["Role", "AI 精品短剧制作 / AI 工作流搭建"],
+      ["Role", "AIGC创意导演/AI精品短剧制作人/AI工作流创建人"],
       ["Output", "3 个月完成 5 部精品短剧创作"],
       ["Platform", "ReelShort / TikTok 等海外平台"],
       ["Result", "2 部作品播放量破百万"],
