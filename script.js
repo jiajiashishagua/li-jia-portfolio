@@ -270,6 +270,10 @@ const workUploadForm = document.querySelector("#work-upload-form");
 const uploadedWorkList = document.querySelector("#uploaded-work-list");
 const workGrid = document.querySelector(".work-grid");
 const dramaLibrary = document.querySelector("#short-drama-library");
+const photoHook = document.querySelector(".hero-photo-hook");
+const butterflyTrigger = document.querySelector(".butterfly-trigger");
+const photoDrop = document.querySelector("#personal-photo-drop");
+const photoIdCard = document.querySelector(".photo-id-card");
 
 function syncHeader() {
   header.classList.toggle("is-scrolled", window.scrollY > 40);
@@ -277,6 +281,28 @@ function syncHeader() {
 
 window.addEventListener("scroll", syncHeader, { passive: true });
 syncHeader();
+
+function setPhotoHookOpen(open) {
+  if (!photoHook || !butterflyTrigger || !photoDrop) return;
+
+  photoHook.classList.toggle("is-open", open);
+  butterflyTrigger.setAttribute("aria-expanded", String(open));
+  photoDrop.setAttribute("aria-hidden", String(!open));
+}
+
+if (photoHook && butterflyTrigger && photoDrop && photoIdCard) {
+  butterflyTrigger.addEventListener("click", () => {
+    setPhotoHookOpen(!photoHook.classList.contains("is-open"));
+  });
+
+  photoIdCard.addEventListener("click", () => setPhotoHookOpen(false));
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setPhotoHookOpen(false);
+    }
+  });
+}
 
 const revealItems = document.querySelectorAll("[data-reveal]");
 

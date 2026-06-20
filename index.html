@@ -16,7 +16,8 @@
     />
     <link rel="preload" href="assets/hero-storyboard.png" as="image" />
     <link rel="preload" href="assets/li-jia-abstract-bw.png" as="image" />
-    <link rel="stylesheet" href="styles.css?v=20260620-copy" />
+    <link rel="preload" href="assets/li-jia-profile.png" as="image" />
+    <link rel="stylesheet" href="styles.css?v=20260621-hook" />
   </head>
   <body>
     <div class="noise-overlay" aria-hidden="true"></div>
@@ -77,6 +78,39 @@
             <div>
               <span>Signal</span>
               2M+ Playback
+            </div>
+          </div>
+          <div class="hero-photo-hook">
+            <button
+              class="butterfly-trigger"
+              type="button"
+              aria-expanded="false"
+              aria-controls="personal-photo-drop"
+              aria-label="展开个人照片"
+            >
+              <span class="butterfly-mark" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+            <div class="photo-drop" id="personal-photo-drop" aria-hidden="true">
+              <div class="photo-swing">
+                <button class="photo-id-card" type="button" aria-label="收起个人照片">
+                  <span class="photo-strap" aria-hidden="true">
+                    <span class="strap-rivet"></span>
+                    <span class="strap-tail"></span>
+                  </span>
+                  <span class="photo-pin" aria-hidden="true"></span>
+                  <span class="photo-window">
+                    <img src="assets/li-jia-profile.png" alt="李佳个人照片" />
+                  </span>
+                  <span class="photo-card-info">
+                    <span>LI JIA</span>
+                    <strong>李佳</strong>
+                    <small>AIGC Creative Director</small>
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -441,6 +475,6 @@
       <span>HANGZHOU</span>
     </footer>
 
-    <script src="script.js?v=20260620-role"></script>
+    <script src="script.js?v=20260621-hook"></script>
   </body>
 </html>
