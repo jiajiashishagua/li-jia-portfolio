@@ -346,29 +346,77 @@ h3 {
 
 .hero-photo-hook {
   position: absolute;
-  bottom: 56px;
+  top: clamp(312px, 39vh, 410px);
   left: 50%;
   z-index: 12;
-  width: 260px;
-  height: 430px;
+  width: 340px;
+  height: 520px;
   transform: translateX(-50%);
   pointer-events: none;
+}
+
+.hero-photo-hook::before,
+.hero-photo-hook::after {
+  position: absolute;
+  left: 50%;
+  content: "";
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.hero-photo-hook::before {
+  top: -16px;
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(24, 24, 24, 0.08);
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent calc(50% - 0.5px), rgba(24, 24, 24, 0.12) 50%, transparent calc(50% + 0.5px)),
+    linear-gradient(0deg, transparent calc(50% - 0.5px), rgba(24, 24, 24, 0.08) 50%, transparent calc(50% + 0.5px));
+}
+
+.hero-photo-hook::after {
+  top: 28px;
+  width: 1px;
+  height: 42px;
+  background: linear-gradient(rgba(24, 24, 24, 0.22), rgba(24, 24, 24, 0));
+  opacity: 0.65;
 }
 
 .butterfly-trigger {
   position: absolute;
   top: 0;
   left: 50%;
-  z-index: 4;
+  z-index: 8;
   display: grid;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   place-items: center;
   padding: 0;
   border: 0;
   background: transparent;
   transform: translateX(-50%);
   pointer-events: auto;
+}
+
+.butterfly-trigger::before {
+  position: absolute;
+  inset: 4px;
+  content: "";
+  border: 1px solid rgba(24, 24, 24, 0.09);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.07);
+  backdrop-filter: blur(8px);
+}
+
+.butterfly-trigger::after {
+  position: absolute;
+  right: -48px;
+  width: 36px;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, rgba(24, 24, 24, 0.2), transparent);
 }
 
 .butterfly-trigger:focus-visible {
@@ -379,16 +427,16 @@ h3 {
 .butterfly-mark {
   position: relative;
   display: block;
-  width: 25px;
-  height: 19px;
-  animation: butterfly-breathe 1.9s ease-in-out infinite;
+  width: 27px;
+  height: 21px;
+  animation: butterfly-breathe 2.15s ease-in-out infinite;
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
 }
 
 .butterfly-mark::before,
 .butterfly-mark::after {
   position: absolute;
-  top: 4px;
+  top: 5px;
   left: 50%;
   width: 2px;
   height: 12px;
@@ -399,57 +447,69 @@ h3 {
 }
 
 .butterfly-mark::after {
-  top: 1px;
+  top: 0;
   width: 1px;
-  height: 18px;
-  opacity: 0.5;
+  height: 21px;
+  opacity: 0.42;
 }
 
 .butterfly-mark span {
   position: absolute;
-  top: 2px;
-  width: 12px;
-  height: 15px;
-  background: var(--foreground);
+  top: 1px;
+  width: 13px;
+  height: 17px;
+  background:
+    radial-gradient(circle at 42% 34%, rgba(255, 255, 255, 0.45) 0 8%, transparent 9%),
+    var(--foreground);
   transform-origin: center right;
 }
 
 .butterfly-mark span:first-child {
   left: 0;
-  border-radius: 80% 36% 72% 44%;
+  border-radius: 92% 30% 76% 42%;
   transform: rotate(-16deg);
-  animation: butterfly-wing-left 1.9s ease-in-out infinite;
+  animation: butterfly-wing-left 2.15s ease-in-out infinite;
 }
 
 .butterfly-mark span:last-child {
   right: 0;
-  border-radius: 36% 80% 44% 72%;
+  border-radius: 30% 92% 42% 76%;
   transform: rotate(16deg);
-  animation: butterfly-wing-right 1.9s ease-in-out infinite;
+  animation: butterfly-wing-right 2.15s ease-in-out infinite;
 }
 
 .photo-drop {
   position: absolute;
-  top: 22px;
+  top: 0;
   left: 50%;
-  width: 218px;
-  margin-left: -109px;
+  width: 236px;
+  margin-left: -118px;
   visibility: hidden;
   opacity: 0;
-  transform: translateY(-160px);
+  transform: rotate(-92deg);
+  transform-origin: 50% 22px;
   pointer-events: none;
 }
 
-.hero-photo-hook.is-open .photo-drop {
+.hero-photo-hook.is-open .photo-drop,
+.hero-photo-hook.is-closing .photo-drop {
   visibility: visible;
-  opacity: 1;
-  animation: photo-drop-in 1050ms cubic-bezier(0.16, 1, 0.3, 1) both;
   pointer-events: auto;
 }
 
-.hero-photo-hook.is-open .photo-swing {
-  transform-origin: top center;
-  animation: photo-soft-swing 2400ms ease-in-out 980ms infinite alternate;
+.hero-photo-hook.is-open .photo-drop {
+  animation: photo-pendulum-open 2600ms cubic-bezier(0.18, 0.82, 0.22, 1) both;
+}
+
+.hero-photo-hook.is-closing .photo-drop {
+  animation: photo-pendulum-close 980ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+.photo-pendulum {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: 50% 22px;
 }
 
 .photo-id-card {
@@ -457,6 +517,7 @@ h3 {
   display: block;
   width: 218px;
   min-height: 330px;
+  margin-top: 26px;
   padding: 0;
   border: 1px solid rgba(24, 24, 24, 0.12);
   border-radius: 8px;
@@ -469,18 +530,15 @@ h3 {
 }
 
 .photo-strap {
-  position: absolute;
-  bottom: calc(100% + 15px);
-  left: 50%;
+  position: relative;
   display: flex;
   width: 16px;
-  height: 112px;
+  height: 118px;
   align-items: flex-start;
   justify-content: center;
   background: linear-gradient(90deg, #0b0b0b, #1c1c1c 48%, #070707);
   border-radius: 999px 999px 6px 6px;
   box-shadow: inset 2px 0 rgba(255, 255, 255, 0.08), 0 10px 28px rgba(0, 0, 0, 0.12);
-  transform: translateX(-50%);
 }
 
 .photo-strap::before,
@@ -504,23 +562,28 @@ h3 {
 
 .strap-rivet {
   position: absolute;
-  top: -11px;
-  width: 22px;
-  height: 22px;
+  top: 10px;
+  left: 50%;
+  z-index: 9;
+  width: 24px;
+  height: 24px;
   border: 1px solid rgba(0, 0, 0, 0.18);
   border-radius: 50%;
   background: radial-gradient(circle at 32% 32%, #ffffff 0 12%, #bfc5cc 13% 58%, #eef1f4 59% 100%);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+  transform: translateX(-50%);
 }
 
 .strap-tail {
   position: absolute;
-  bottom: -18px;
+  bottom: -16px;
+  left: 50%;
   width: 10px;
   height: 26px;
   border: 2px solid #8b8f94;
   border-radius: 999px;
   background: linear-gradient(#f3f4f6, #a7adb5);
+  transform: translateX(-50%);
 }
 
 .photo-pin {
@@ -599,13 +662,13 @@ h3 {
 @keyframes butterfly-breathe {
   0%,
   100% {
-    opacity: 0.46;
-    transform: scale(0.9);
+    opacity: 0.54;
+    transform: scale(0.88) translateY(1px);
   }
 
   50% {
     opacity: 1;
-    transform: scale(1.08);
+    transform: scale(1.08) translateY(-1px);
   }
 }
 
@@ -631,34 +694,53 @@ h3 {
   }
 }
 
-@keyframes photo-drop-in {
+@keyframes photo-pendulum-open {
   0% {
     opacity: 0;
-    transform: translateY(-165px) rotate(-34deg);
+    transform: rotate(-92deg);
   }
 
-  52% {
+  10% {
     opacity: 1;
-    transform: translateY(10px) rotate(9deg);
   }
 
-  74% {
-    transform: translateY(0) rotate(-5deg);
+  43% {
+    opacity: 1;
+    transform: rotate(14deg);
+  }
+
+  62% {
+    transform: rotate(-7deg);
+  }
+
+  78% {
+    transform: rotate(3.5deg);
+  }
+
+  91% {
+    transform: rotate(-1deg);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0) rotate(0deg);
+    transform: rotate(0deg);
   }
 }
 
-@keyframes photo-soft-swing {
+@keyframes photo-pendulum-close {
   0% {
-    transform: rotate(-2.5deg);
+    opacity: 1;
+    transform: rotate(0deg) translateY(0);
+  }
+
+  16% {
+    opacity: 1;
+    transform: rotate(2deg) translateY(12px);
   }
 
   100% {
-    transform: rotate(2.5deg);
+    opacity: 0;
+    transform: rotate(-90deg) translateY(-8px);
   }
 }
 
@@ -2407,9 +2489,9 @@ body.is-editing [data-edit-key]:focus {
   }
 
   .hero-photo-hook {
-    bottom: 34px;
+    top: clamp(360px, 47vh, 430px);
     transform: translateX(-50%) scale(0.88);
-    transform-origin: bottom center;
+    transform-origin: top center;
   }
 
   .hero-meta,
@@ -2516,7 +2598,7 @@ body.is-editing [data-edit-key]:focus {
   }
 
   .hero-photo-hook {
-    bottom: -22px;
+    top: 54vh;
     transform: translateX(-50%) scale(0.74);
   }
 
@@ -2664,7 +2746,9 @@ body.is-editing [data-edit-key]:focus {
     transition-duration: 1ms !important;
   }
 
-  .hero-photo-hook.is-open .photo-drop {
-    transform: translateY(0) rotate(0deg);
+  .hero-photo-hook.is-open .photo-drop,
+  .hero-photo-hook.is-closing .photo-drop {
+    opacity: 1;
+    transform: rotate(0deg);
   }
 }

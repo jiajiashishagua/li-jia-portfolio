@@ -274,6 +274,7 @@ const photoHook = document.querySelector(".hero-photo-hook");
 const butterflyTrigger = document.querySelector(".butterfly-trigger");
 const photoDrop = document.querySelector("#personal-photo-drop");
 const photoIdCard = document.querySelector(".photo-id-card");
+let photoCloseTimer;
 
 function syncHeader() {
   header.classList.toggle("is-scrolled", window.scrollY > 40);
@@ -285,9 +286,29 @@ syncHeader();
 function setPhotoHookOpen(open) {
   if (!photoHook || !butterflyTrigger || !photoDrop) return;
 
-  photoHook.classList.toggle("is-open", open);
+  window.clearTimeout(photoCloseTimer);
+
   butterflyTrigger.setAttribute("aria-expanded", String(open));
-  photoDrop.setAttribute("aria-hidden", String(!open));
+
+  if (open) {
+    photoHook.classList.remove("is-closing");
+    photoHook.classList.add("is-open");
+    photoDrop.setAttribute("aria-hidden", "false");
+    return;
+  }
+
+  if (!photoHook.classList.contains("is-open")) {
+    photoHook.classList.remove("is-closing");
+    photoDrop.setAttribute("aria-hidden", "true");
+    return;
+  }
+
+  photoHook.classList.remove("is-open");
+  photoHook.classList.add("is-closing");
+  photoDrop.setAttribute("aria-hidden", "true");
+  photoCloseTimer = window.setTimeout(() => {
+    photoHook.classList.remove("is-closing");
+  }, 1040);
 }
 
 if (photoHook && butterflyTrigger && photoDrop && photoIdCard) {
