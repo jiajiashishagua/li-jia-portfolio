@@ -449,6 +449,10 @@ h3 {
   line-height: 1.08;
 }
 
+.heading-line {
+  display: block;
+}
+
 .thin-rule {
   width: 48px;
   height: 1px;
