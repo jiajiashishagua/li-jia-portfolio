@@ -346,7 +346,7 @@ h3 {
 
 .hero-photo-hook {
   position: absolute;
-  top: clamp(312px, 39vh, 410px);
+  top: clamp(300px, 38vh, 390px);
   left: 50%;
   z-index: 12;
   width: 340px;
@@ -365,9 +365,9 @@ h3 {
 }
 
 .hero-photo-hook::before {
-  top: -16px;
-  width: 72px;
-  height: 72px;
+  top: -18px;
+  width: 78px;
+  height: 78px;
   border: 1px solid rgba(24, 24, 24, 0.08);
   border-radius: 50%;
   background:
@@ -376,7 +376,7 @@ h3 {
 }
 
 .hero-photo-hook::after {
-  top: 28px;
+  top: 30px;
   width: 1px;
   height: 42px;
   background: linear-gradient(rgba(24, 24, 24, 0.22), rgba(24, 24, 24, 0));
@@ -385,7 +385,7 @@ h3 {
 
 .butterfly-trigger {
   position: absolute;
-  top: 0;
+  top: -4px;
   left: 50%;
   z-index: 8;
   display: grid;
@@ -401,12 +401,12 @@ h3 {
 
 .butterfly-trigger::before {
   position: absolute;
-  inset: 4px;
+  inset: 0;
   content: "";
-  border: 1px solid rgba(24, 24, 24, 0.09);
+  border: 1px solid rgba(24, 24, 24, 0.07);
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.07);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.06);
   backdrop-filter: blur(8px);
 }
 
@@ -427,54 +427,33 @@ h3 {
 .butterfly-mark {
   position: relative;
   display: block;
-  width: 27px;
-  height: 21px;
+  width: 31px;
+  height: 30px;
   animation: butterfly-breathe 2.15s ease-in-out infinite;
   filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
 }
 
-.butterfly-mark::before,
-.butterfly-mark::after {
-  position: absolute;
-  top: 5px;
-  left: 50%;
-  width: 2px;
-  height: 12px;
-  content: "";
-  background: var(--foreground);
-  border-radius: 999px;
-  transform: translateX(-50%);
+.butterfly-mark path {
+  fill: var(--foreground);
+  stroke: none;
 }
 
-.butterfly-mark::after {
-  top: 0;
-  width: 1px;
-  height: 21px;
-  opacity: 0.42;
+.butterfly-mark .butterfly-antenna {
+  fill: none;
+  stroke: var(--foreground);
+  stroke-linecap: round;
+  stroke-width: 4;
 }
 
-.butterfly-mark span {
-  position: absolute;
-  top: 1px;
-  width: 13px;
-  height: 17px;
-  background:
-    radial-gradient(circle at 42% 34%, rgba(255, 255, 255, 0.45) 0 8%, transparent 9%),
-    var(--foreground);
-  transform-origin: center right;
-}
-
-.butterfly-mark span:first-child {
-  left: 0;
-  border-radius: 92% 30% 76% 42%;
-  transform: rotate(-16deg);
+.butterfly-wing-left-upper,
+.butterfly-wing-left-lower {
+  transform-origin: 48px 48px;
   animation: butterfly-wing-left 2.15s ease-in-out infinite;
 }
 
-.butterfly-mark span:last-child {
-  right: 0;
-  border-radius: 30% 92% 42% 76%;
-  transform: rotate(16deg);
+.butterfly-wing-right-upper,
+.butterfly-wing-right-lower {
+  transform-origin: 48px 48px;
   animation: butterfly-wing-right 2.15s ease-in-out infinite;
 }
 
@@ -904,12 +883,36 @@ h3 {
 
 .skill-columns li {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 24px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border-line);
   color: var(--foreground);
   font-size: 0.92rem;
+}
+
+.tool-list li {
+  justify-content: flex-start;
+  gap: 14px;
+}
+
+.tool-list li span {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tool-list li span + span::before {
+  width: 4px;
+  height: 4px;
+  content: "";
+  border-radius: 50%;
+  background: var(--foreground);
+}
+
+.tool-list li::after {
+  content: none;
 }
 
 .skill-columns li::after {
