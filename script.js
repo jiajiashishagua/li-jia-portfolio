@@ -7,7 +7,7 @@ const baseProjects = {
     description:
       "入职 3 个月完成精品短剧创作 5 部，其中 3 部上线 ReelShort、TikTok 等平台，2 部播放量破百万。熟悉海外短剧平台的内容节奏、画面标准与传播反馈。",
     details: [
-      ["Role", "AI 精品短剧制作 / AIGC 视频制作"],
+      ["Role", "AI 精品短剧制作 / AI 工作流搭建"],
       ["Output", "3 个月完成 5 部精品短剧创作"],
       ["Platform", "ReelShort / TikTok 等海外平台"],
       ["Result", "2 部作品播放量破百万"],
@@ -78,16 +78,18 @@ const shortDramaSections = [
     id: "mad-queen",
     eyebrow: "PART 01",
     title: "Mad Queen",
-    summary: "Representative demo / 10-30 MB",
+    summary: "Confidential Representative Sample",
     description: "代表性精简样片，用于展示短剧镜头调度、人物状态和高密度剧情推进能力。",
     files: [
       {
         id: "demo",
-        title: "Mad Queen // Confidential Demo",
-        fileName: "mad-queen-demo.mp4",
+        title: "Mad Queen // 保密代表样片",
+        fileName: "面试定向展示",
         type: "video/mp4",
-        size: "Demo clip / 10-30 MB",
-        src: "assets/short-drama/demo/mad-queen-demo.mp4",
+        role: "职责：剧情理解、人物状态拆解、镜头节奏与画面质量优化",
+        proof: "能力证明：能把高密度情绪冲突转译成可生成、可质检、可交付的镜头方案。",
+        src: "",
+        available: false,
         confidential: true,
       },
     ],
@@ -96,16 +98,18 @@ const shortDramaSections = [
     id: "second-chance",
     eyebrow: "PART 02",
     title: "Second Chance - No More Mrs. Nice Girl",
-    summary: "Representative demo / 10-30 MB",
+    summary: "Confidential Representative Sample",
     description: "代表性精简样片，用于呈现连续叙事、人物关系变化、情绪反转和短剧节奏控制。",
     files: [
       {
         id: "demo",
-        title: "Second Chance // Confidential Demo",
-        fileName: "second-chance-demo.mp4",
+        title: "Second Chance // 保密代表样片",
+        fileName: "面试定向展示",
         type: "video/mp4",
-        size: "Demo clip / 10-30 MB",
-        src: "assets/short-drama/demo/second-chance-demo.mp4",
+        role: "职责：叙事节奏拆解、二卡/三卡制作、分镜提示词优化",
+        proof: "能力证明：能围绕人物反转和平台节奏，拆出更适合 AIGC 生产的画面结构。",
+        src: "",
+        available: false,
         confidential: true,
       },
     ],
@@ -114,34 +118,38 @@ const shortDramaSections = [
     id: "my-husband-lost-me",
     eyebrow: "PART 03",
     title: "My Husband Lost Me",
-    summary: "Representative demo / 10-30 MB",
+    summary: "Confidential Representative Sample",
     description: "代表性精简样片，用于展示出海短剧项目中的叙事节奏、情绪钩子和画面交付能力。",
     files: [
       {
         id: "demo",
-        title: "My Husband Lost Me // Confidential Demo",
-        fileName: "my-husband-lost-me-demo.mp4",
+        title: "My Husband Lost Me // 保密代表样片",
+        fileName: "面试定向展示",
         type: "video/mp4",
-        size: "Demo clip / 10-30 MB",
-        src: "assets/short-drama/demo/my-husband-lost-me-demo.mp4",
+        role: "职责：剧情钩子提炼、人物关系拆解、成片问题复盘",
+        proof: "能力证明：能在出海短剧语境下平衡情绪强度、镜头清晰度与交付稳定性。",
+        src: "",
+        available: false,
         confidential: true,
       },
     ],
   },
   {
-    id: "early-works",
+    id: "additional-samples",
     eyebrow: "PART 04",
-    title: "其他样片与成长轨迹 (Additional Samples)",
-    summary: "Representative demo / 10-30 MB",
+    title: "其他样片与成长轨迹 / Additional Samples",
+    summary: "Additional Samples",
     description: "补充样片用于展示创作路径、叙事理解和影像表达的成长轨迹。",
     files: [
       {
         id: "demo",
-        title: "Additional Samples // Confidential Demo",
-        fileName: "additional-samples-demo.mp4",
+        title: "Additional Samples // 保密占位卡",
+        fileName: "面试定向展示",
         type: "video/mp4",
-        size: "Demo clip / 10-30 MB",
-        src: "assets/short-drama/demo/additional-samples-demo.mp4",
+        role: "职责：创作练习、镜头语言学习、提示词表达沉淀",
+        proof: "能力证明：展示从执行型制作到更强镜头判断的成长轨迹。",
+        src: "",
+        available: false,
         confidential: true,
       },
     ],
@@ -157,7 +165,7 @@ const capabilityDetails = {
     description:
       "能参与精品短剧从剧本理解、剧情分析、人物/场景/道具拆解、分镜提示词到成片优化的完整流程，不停留在单点执行。",
     details: [
-      ["Production Scope", "覆盖剧情理解、人物关系拆解、场景/道具资产梳理、分镜提示词、二/三卡制作与成片优化。"],
+      ["Production Scope", "覆盖剧情理解、人物关系拆解、场景/道具资产梳理、分镜提示词、二卡/三卡制作与成片优化。"],
       ["Project Proof", "已参与完成 5 部精品短剧，其中 3 部上线 ReelShort、TikTok 等平台，2 部播放量破百万。"],
       ["HR Signal", "具备真实项目经验和平台结果验证，能进入实际生产现场，承担从理解到交付的关键环节。"],
     ],
@@ -170,8 +178,8 @@ const capabilityDetails = {
     description:
       "擅长把复杂、高频、依赖个人经验的工作拆成标准流程，让团队能复用、协作和规模化交付。",
     details: [
-      ["Previous Proof", "曾在七星微电子主导自动生成报告平台，梳理检测报告流程、搭建模板库，并实现报告自动化生成。"],
-      ["AIGC Transfer", "在短剧制作中搭建多款 AIGC 工作流和 Agent，把个人经验转化为可复制的生产流程。"],
+      ["Previous Proof", "曾在七星微电子调研 15 人技术团队诉求，搭建 6 套标准化报告模板，覆盖 400 余种产品型号。"],
+      ["AIGC Transfer", "入职后将流程拆解能力迁移至 AIGC 短剧生产，沉淀提示词平台、Agent 工作流与制作 SOP。"],
       ["Value", "这项能力让短剧生产不只是完成单个任务，而是形成可沉淀、可迭代、可交接的体系。"],
     ],
   },
@@ -190,14 +198,14 @@ const capabilityDetails = {
   },
   "tool-selection": {
     category: "Core Capability / 04",
-    title: "工具选型、平台对接与提效能力",
+    title: "工具选型与平台对接能力",
     cover: "Tools\nAPI & Platform",
     tags: ["LibTV", "NeoWow", "Wuli", "API"],
     description:
-      "能主动寻找提效工具、评估能力边界、对接平台方，并判断工具是否真正适合业务生产。",
+      "能主动寻找提效工具、评估能力边界、对接平台方，并判断工具是否真正适合生产流程。",
     details: [
-      ["Platform Work", "参与短视频生成平台及模型 API 的搭建与对接，理解模型能力评估、流程调用和业务落地。"],
-      ["Tool Partners", "曾对接 LibTV、NeoWow、Wuli 分镜师、分秒帧、帧界等平台，快速完成工具调研和生产匹配。"],
+      ["Platform Work", "参与模型 API 能力评估、接口选型与业务落地判断，理解模型能力、流程调用和生产约束。"],
+      ["Tool Partners", "对接 LibTV、NeoWow、Wuli 分镜师、分秒帧、帧界等 AIGC 提效平台，完成工具调研和生产匹配。"],
       ["Business Judgment", "关注工具能否进入真实制作流程，而不是只看演示效果。"],
     ],
   },
@@ -210,7 +218,7 @@ const capabilityDetails = {
       "能够根据短剧制作中的高频需求设计 Agent，用工具化、自动化方式减少重复劳动并提升团队效率。",
     details: [
       ["Agents", "创建人物/道具/场景资产提取 Agent、故事板生成 Agent、分镜提示词生成 Agent、剧情分析 Agent 等。"],
-      ["Efficiency", "推动制作周期从约一个半月打磨一部精品剧，提升到 20 天制作两部精品剧。"],
+      ["Efficiency", "推动项目制作节奏由约 45 天/部提升至约 20 天/2 部，交付节奏显著提升。"],
       ["Positioning", "这说明我不只是执行 AIGC 制作，也能帮助团队建立更高效的生产系统。"],
     ],
   },
@@ -425,7 +433,7 @@ function bindPreviewPlayback(card, video) {
 function createDramaVisual(card, section, file) {
   const kind = getFileKind(file.type);
 
-  if (kind === "video") {
+  if (kind === "video" && file.available && file.src) {
     const visual = document.createElement("div");
     visual.className = "work-visual video-visual drama-video-visual";
 
@@ -455,17 +463,20 @@ function createDramaVisual(card, section, file) {
     return visual;
   }
 
-  const visual = createFileVisual({
-    fileName: file.title,
-    fileType: file.type,
-  });
-  visual.classList.add("drama-file-visual");
+  const visual = document.createElement("div");
+  visual.className = "work-visual confidential-placeholder";
+  visual.innerHTML = `
+    <div>
+      <span>${escapeHtml(section.eyebrow)}</span>
+      <strong>保密作品占位卡</strong>
+      <small>Interview-only preview</small>
+    </div>
+  `;
   return visual;
 }
 
 function createDramaCard(section, file) {
   const key = `drama-${section.id}-${file.id}`;
-  const kind = getFileKind(file.type);
   const card = document.createElement("article");
   card.className = "work-card drama-card";
   card.dataset.project = key;
@@ -481,7 +492,8 @@ function createDramaCard(section, file) {
   info.innerHTML = `
     <div>
       <h3>${escapeHtml(file.title)}</h3>
-      <p>${escapeHtml(section.title)} / ${escapeHtml(file.size)}</p>
+      <p>${escapeHtml(file.role || section.title)}</p>
+      ${file.proof ? `<p class="drama-proof">${escapeHtml(file.proof)}</p>` : ""}
       ${file.confidential ? `<small class="confidential-note">${escapeHtml(CONFIDENTIAL_NOTICE)}</small>` : ""}
     </div>
     <span class="dot-mark"></span>
@@ -491,20 +503,21 @@ function createDramaCard(section, file) {
   hit.addEventListener("click", () => openProject(key));
 
   staticDramaProjects[key] = {
-    category: `${section.eyebrow} / ${kind === "video" ? "Video" : "Archive"}`,
+    category: `${section.eyebrow} / ${file.available ? "Representative Demo" : "Confidential Placeholder"}`,
     title: file.title,
     description: file.confidential ? `${section.description}\n${CONFIDENTIAL_NOTICE}` : section.description,
     cover: `${section.title}\n${file.title}`,
-    staticFile: file.src,
+    visual: "assets/card-manga-pipeline.png",
+    staticFile: file.available ? file.src : "",
     fileName: file.fileName,
     fileType: file.type,
+    placeholder: !file.available,
     details: [
       ["Project", section.title],
-      ["Section", section.summary],
-      ["File", file.fileName],
-      ["Size", file.size],
+      ["Role", file.role || "短剧制作与画面优化"],
+      ["Capability Proof", file.proof || "代表性样片用于说明短剧制作能力。"],
+      ["Access", file.available ? "Hover preview / modal playback" : "保密项目，仅面试沟通后定向展示。"],
       ...(file.confidential ? [["Confidential", "仅作求职技能展示，涉及项目保密协议，请勿公开传播。"]] : []),
-      ["Action", kind === "video" ? "Hover preview / modal playback" : "Download or open archive"],
     ],
   };
 
@@ -525,6 +538,7 @@ function renderShortDramaLibrary() {
         <p>${escapeHtml(section.eyebrow)}</p>
         <h3>${escapeHtml(section.title)}</h3>
         <span>${escapeHtml(section.summary)}</span>
+        <small class="drama-section-note">${escapeHtml(section.description)}</small>
       </div>
       <div class="drama-file-grid"></div>
     `;
@@ -755,6 +769,17 @@ function renderCapabilityMedia(capability) {
 }
 
 async function renderModalMedia(project) {
+  if (project.placeholder) {
+    const placeholder = document.createElement("div");
+    placeholder.className = "modal-confidential-placeholder";
+    placeholder.innerHTML = `
+      <strong>Confidential Sample</strong>
+      <span>样片涉及项目保密协议，当前仅展示职责与能力证明；高清作品可在面试沟通后定向查看。</span>
+    `;
+    modalMedia.append(placeholder);
+    return;
+  }
+
   if (project.staticFile) {
     const kind = getFileKind(project.fileType);
 
@@ -937,7 +962,12 @@ function resetPageCopy() {
   window.location.reload();
 }
 
+function hasEditorAccess() {
+  return new URLSearchParams(window.location.search).get("edit") === "1";
+}
+
 function openEditor() {
+  if (!hasEditorAccess()) return;
   editorPanel.classList.add("is-open");
   editorPanel.setAttribute("aria-hidden", "false");
 }
@@ -948,7 +978,7 @@ function closeEditor() {
 }
 
 function syncEditorAccess() {
-  const canEdit = new URLSearchParams(window.location.search).get("edit") === "1";
+  const canEdit = hasEditorAccess();
   editorToggle.classList.toggle("is-enabled", canEdit);
 
   if (!canEdit) {
