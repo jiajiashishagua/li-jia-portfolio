@@ -274,7 +274,7 @@ const photoHook = document.querySelector(".hero-photo-hook");
 const butterflyTrigger = document.querySelector(".butterfly-trigger");
 const photoDrop = document.querySelector("#personal-photo-drop");
 const photoIdCard = document.querySelector(".photo-id-card");
-let photoCloseTimer;
+let photoAnimationFrame;
 
 function syncHeader() {
   header.classList.toggle("is-scrolled", window.scrollY > 40);
@@ -283,10 +283,140 @@ function syncHeader() {
 window.addEventListener("scroll", syncHeader, { passive: true });
 syncHeader();
 
+function clampNumber(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
+
+function easeInOutCubic(value) {
+  return value < 0.5 ? 4 * value * value * value : 1 - Math.pow(-2 * value + 2, 3) / 2;
+}
+
+function dampedSpringProgress(seconds) {
+  const dampingRatio = 0.66;
+  const angularFrequency = 4.4;
+  const dampedFrequency = angularFrequency * Math.sqrt(1 - dampingRatio * dampingRatio);
+  const envelope = Math.exp(-dampingRatio * angularFrequency * seconds);
+  const phase =
+    Math.cos(dampedFrequency * seconds) +
+    (dampingRatio / Math.sqrt(1 - dampingRatio * dampingRatio)) * Math.sin(dampedFrequency * seconds);
+  return 1 - envelope * phase;
+}
+
+function setPhotoDropFrame({ y, angle, opacity, shadowY, shadowBlur, shadowAlpha }) {
+  if (!photoDrop) return;
+
+  photoDrop.style.opacity = String(clampNumber(opacity, 0, 1));
+  photoDrop.style.transform = `translate3d(0, ${y.toFixed(2)}px, 0) rotate(${angle.toFixed(3)}deg)`;
+  photoDrop.style.filter = `drop-shadow(0 ${shadowY.toFixed(1)}px ${shadowBlur.toFixed(1)}px rgba(0, 0, 0, ${shadowAlpha.toFixed(3)}))`;
+}
+
+function cancelPhotoMotion() {
+  if (photoAnimationFrame) {
+    window.cancelAnimationFrame(photoAnimationFrame);
+    photoAnimationFrame = undefined;
+  }
+}
+
+function runPhotoOpenMotion() {
+  if (!photoDrop) return;
+
+  cancelPhotoMotion();
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    setPhotoDropFrame({ y: 0, angle: 0, opacity: 1, shadowY: 18, shadowBlur: 38, shadowAlpha: 0.13 });
+    return;
+  }
+
+  const startY = -230;
+  const targetY = 0;
+  const duration = 2400;
+  const settleAt = 2200;
+  const startedAt = window.performance.now();
+
+  const tick = (timestamp) => {
+    const elapsed = timestamp - startedAt;
+    const seconds = elapsed / 1000;
+    const progress = dampedSpringProgress(seconds);
+    const y = startY + (targetY - startY) * progress;
+    const swingSeconds = Math.max(0, seconds - 0.72);
+    const swingEnvelope = Math.exp(-1.9 * swingSeconds);
+    const entryLean = -1.8 * (1 - clampNumber(elapsed / 560, 0, 1));
+    const swing = swingSeconds > 0 ? 3.3 * swingEnvelope * Math.sin(8.4 * swingSeconds) : 0;
+    const opacity = clampNumber(elapsed / 420, 0, 1);
+    const velocityHint = clampNumber(Math.abs(y) / Math.abs(startY), 0, 1);
+    const shadowLift = 1 - velocityHint;
+
+    setPhotoDropFrame({
+      y,
+      angle: entryLean + swing,
+      opacity,
+      shadowY: 8 + shadowLift * 18,
+      shadowBlur: 18 + shadowLift * 30,
+      shadowAlpha: 0.06 + shadowLift * 0.1,
+    });
+
+    if (elapsed < duration && (elapsed < settleAt || Math.abs(y) > 0.25 || Math.abs(swing) > 0.12)) {
+      photoAnimationFrame = window.requestAnimationFrame(tick);
+      return;
+    }
+
+    setPhotoDropFrame({ y: 0, angle: 0, opacity: 1, shadowY: 18, shadowBlur: 38, shadowAlpha: 0.13 });
+    photoAnimationFrame = undefined;
+  };
+
+  photoAnimationFrame = window.requestAnimationFrame(tick);
+}
+
+function runPhotoCloseMotion(onComplete) {
+  if (!photoDrop) return;
+
+  cancelPhotoMotion();
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    setPhotoDropFrame({ y: -210, angle: -3, opacity: 0, shadowY: 10, shadowBlur: 24, shadowAlpha: 0.08 });
+    onComplete?.();
+    return;
+  }
+
+  const duration = 760;
+  const startedAt = window.performance.now();
+
+  const tick = (timestamp) => {
+    const elapsed = timestamp - startedAt;
+    const progress = clampNumber(elapsed / duration, 0, 1);
+    const eased = easeInOutCubic(progress);
+    const dip = Math.sin(Math.min(progress * Math.PI, Math.PI)) * 9;
+    const y = dip - 210 * eased;
+    const angle = -3.4 * eased;
+    const opacity = 1 - clampNumber((progress - 0.18) / 0.72, 0, 1);
+    const shadowEase = 1 - eased;
+
+    setPhotoDropFrame({
+      y,
+      angle,
+      opacity,
+      shadowY: 10 + shadowEase * 8,
+      shadowBlur: 24 + shadowEase * 14,
+      shadowAlpha: 0.08 + shadowEase * 0.05,
+    });
+
+    if (progress < 1) {
+      photoAnimationFrame = window.requestAnimationFrame(tick);
+      return;
+    }
+
+    setPhotoDropFrame({ y: -210, angle: -3, opacity: 0, shadowY: 10, shadowBlur: 24, shadowAlpha: 0.08 });
+    photoAnimationFrame = undefined;
+    onComplete?.();
+  };
+
+  photoAnimationFrame = window.requestAnimationFrame(tick);
+}
+
 function setPhotoHookOpen(open) {
   if (!photoHook || !butterflyTrigger || !photoDrop) return;
 
-  window.clearTimeout(photoCloseTimer);
+  cancelPhotoMotion();
 
   butterflyTrigger.setAttribute("aria-expanded", String(open));
 
@@ -294,6 +424,7 @@ function setPhotoHookOpen(open) {
     photoHook.classList.remove("is-closing");
     photoHook.classList.add("is-open");
     photoDrop.setAttribute("aria-hidden", "false");
+    runPhotoOpenMotion();
     return;
   }
 
@@ -306,12 +437,14 @@ function setPhotoHookOpen(open) {
   photoHook.classList.remove("is-open");
   photoHook.classList.add("is-closing");
   photoDrop.setAttribute("aria-hidden", "true");
-  photoCloseTimer = window.setTimeout(() => {
+  runPhotoCloseMotion(() => {
     photoHook.classList.remove("is-closing");
-  }, 1040);
+  });
 }
 
 if (photoHook && butterflyTrigger && photoDrop && photoIdCard) {
+  setPhotoDropFrame({ y: -210, angle: -3, opacity: 0, shadowY: 10, shadowBlur: 24, shadowAlpha: 0.08 });
+
   butterflyTrigger.addEventListener("click", () => {
     setPhotoHookOpen(!photoHook.classList.contains("is-open"));
   });
