@@ -30,7 +30,7 @@ const baseProjects = {
   lens: {
     category: "Lens Language / Review",
     title: "镜头语言与拉片复盘",
-    visual: "assets/hero-storyboard.png",
+    visual: "assets/creative-light-portrait.png",
     cover: "Shot Language\nReview System",
     description:
       "持续跟随韩国高校影视方向研究生毕业导演学习镜头语言，通过多次拉片与镜头复盘，强化镜头调度、人物微表情、场面节奏与语言表达能力。",
