@@ -3,14 +3,14 @@ const baseProjects = {
     category: "AI Short Drama / Launch",
     title: "精品短剧量产与平台上线",
     visual: "assets/card-manga-pipeline.png",
-    cover: "5 部精品短剧\n3 部海外上线",
+    cover: "7 部精品短剧\n全部海外上线",
     description:
-      "入职 3 个月完成精品短剧创作 5 部，其中 3 部上线 ReelShort、TikTok 等平台，2 部播放量破百万。熟悉海外短剧平台的内容节奏、画面标准与传播反馈。",
+      "入职 4 个月完成 7 部海外女频精品剧，全部上线海外平台；其中 2 部播放量突破 100 万，最高单部突破 500 万。熟悉海外短剧平台的内容节奏、画面标准与传播反馈。",
     details: [
-      ["Role", "AIGC创意导演/AI精品短剧制作人/AI工作流创建人"],
-      ["Output", "3 个月完成 5 部精品短剧创作"],
-      ["Platform", "ReelShort / TikTok 等海外平台"],
-      ["Result", "2 部作品播放量破百万"],
+      ["Role", "AI精品短剧制作组长 / AI短剧导演"],
+      ["Output", "4 个月完成 7 部海外女频精品剧"],
+      ["Platform", "7 部作品全部上线海外平台"],
+      ["Result", "2 部破百万 / 最高单部 500 万+"],
     ],
   },
   cards: {
@@ -30,7 +30,7 @@ const baseProjects = {
   lens: {
     category: "Lens Language / Review",
     title: "镜头语言与拉片复盘",
-    visual: "assets/creative-light-portrait.png",
+    visual: "assets/production-lighting-night.jpg",
     cover: "Shot Language\nReview System",
     description:
       "持续跟随韩国高校影视方向研究生毕业导演学习镜头语言，通过多次拉片与镜头复盘，强化镜头调度、人物微表情、场面节奏与语言表达能力。",
@@ -75,8 +75,28 @@ const CONFIDENTIAL_NOTICE = "*注：本案例仅作求职技能展示，涉及�
 
 const shortDramaSections = [
   {
-    id: "my-husband-lost-me",
+    id: "dragons-vow",
     eyebrow: "PART 01",
+    title: "Dragon’s Vow",
+    summary: "Western Fantasy / VFX Battle Preview",
+    description: "代表性西幻样片，用于展示西式奇幻题材中的魔法特效、战斗场面、角色调度与史诗光影控制。",
+    files: [
+      {
+        id: "vfx-battle",
+        title: "Dragon’s Vow // 特效与战斗场面样片",
+        fileName: "dragons-vow-vfx-battle-demo.mp4",
+        type: "video/mp4",
+        role: "职责：西幻视觉调性、特效镜头表达、战斗场面调度、AI 分镜与成片质检",
+        proof: "能力证明：能处理西式奇幻题材中的魔法特效、动作冲突、场景氛围与镜头连续性。",
+        src: "assets/short-drama/demo/dragons-vow-vfx-battle-demo.mp4",
+        available: true,
+        confidential: true,
+      },
+    ],
+  },
+  {
+    id: "my-husband-lost-me",
+    eyebrow: "PART 02",
     title: "My Husband Lost Me",
     summary: "Narrative Hook / Web Preview",
     description: "代表性精简样片，用于展示出海短剧项目中的叙事节奏、情绪钩子和画面交付能力。",
@@ -96,7 +116,7 @@ const shortDramaSections = [
   },
   {
     id: "the-hidden-empress",
-    eyebrow: "PART 02",
+    eyebrow: "PART 03",
     title: "The Hidden Empress",
     summary: "Emotional Detail / Web Preview",
     description: "代表性情绪样片，用于展示我对人物情感层次、微表情变化和细腻情绪递进的把控。",
@@ -116,7 +136,7 @@ const shortDramaSections = [
   },
   {
     id: "mad-queen",
-    eyebrow: "PART 03",
+    eyebrow: "PART 04",
     title: "Mad Queen",
     summary: "High Conflict / Web Preview",
     description: "代表性精简样片，用于展示短剧镜头调度、人物状态和高密度剧情推进能力。",
@@ -136,7 +156,7 @@ const shortDramaSections = [
   },
   {
     id: "second-chance",
-    eyebrow: "PART 04",
+    eyebrow: "PART 05",
     title: "Second Chance - No More Mrs. Nice Girl",
     summary: "Character Turn / Web Preview",
     description: "代表性精简样片，用于呈现连续叙事、人物关系变化、情绪反转和短剧节奏控制。",
@@ -156,7 +176,7 @@ const shortDramaSections = [
   },
   {
     id: "additional-samples",
-    eyebrow: "PART 05",
+    eyebrow: "PART 06",
     title: "其他样片与成长轨迹 / Additional Samples",
     summary: "Growth Sample / Web Preview",
     description: "补充样片用于展示创作路径、叙事理解和影像表达的成长轨迹。",
@@ -208,7 +228,7 @@ const capabilityDetails = {
       "能参与精品短剧从剧本理解、剧情分析、人物/场景/道具拆解、分镜提示词到成片优化的完整流程，不停留在单点执行。",
     details: [
       ["Production Scope", "覆盖剧情理解、人物关系拆解、场景/道具资产梳理、分镜提示词、二卡/三卡制作与成片优化。"],
-      ["Project Proof", "已参与完成 5 部精品短剧，其中 3 部上线 ReelShort、TikTok 等平台，2 部播放量破百万。"],
+      ["Project Proof", "已完成 7 部海外女频精品剧，全部上线海外平台；其中 2 部播放量破百万，最高单部突破 500 万。"],
       ["HR Signal", "具备真实项目经验和平台结果验证，能进入实际生产现场，承担从理解到交付的关键环节。"],
     ],
   },
@@ -283,11 +303,14 @@ const capabilityDetails = {
 const STORAGE_KEYS = {
   copy: "li-jia-page-copy-v1",
   works: "li-jia-uploaded-works-v1",
+  adminSession: "li-jia-admin-session-v1",
+  theme: "li-jia-theme-v1",
 };
 
 const DB_NAME = "li-jia-portfolio-files";
 const DB_VERSION = 1;
 const FILE_STORE = "files";
+const ADMIN_ACCESS_HASH = "26e412b51da692886796c8497d18b25d85411ead9a3115a3e357fe0cde4479f6";
 
 let projects = { ...baseProjects };
 let staticDramaProjects = {};
@@ -308,15 +331,42 @@ const editorClose = document.querySelector(".editor-close");
 const toggleEditModeButton = document.querySelector("#toggle-edit-mode");
 const saveCopyButton = document.querySelector("#save-page-copy");
 const resetCopyButton = document.querySelector("#reset-page-copy");
+const adminLoginSection = document.querySelector("#admin-login-section");
+const adminLoginForm = document.querySelector("#admin-login-form");
+const adminAccessCode = document.querySelector("#admin-access-code");
+const adminLoginError = document.querySelector("#admin-login-error");
+const adminSignOutButton = document.querySelector("#admin-sign-out");
+const exportContentButton = document.querySelector("#export-content-config");
+const importContentInput = document.querySelector("#import-content-config");
 const workUploadForm = document.querySelector("#work-upload-form");
 const uploadedWorkList = document.querySelector("#uploaded-work-list");
 const workGrid = document.querySelector(".work-grid");
 const dramaLibrary = document.querySelector("#short-drama-library");
+const themeToggle = document.querySelector(".theme-toggle");
 const photoHook = document.querySelector(".hero-photo-hook");
 const butterflyTrigger = document.querySelector(".butterfly-trigger");
 const photoDrop = document.querySelector("#personal-photo-drop");
 const photoIdCard = document.querySelector(".photo-id-card");
 let photoAnimationFrame;
+
+function getSavedTheme() {
+  return localStorage.getItem(STORAGE_KEYS.theme) === "light" ? "light" : "night";
+}
+
+function applyTheme(theme) {
+  const normalizedTheme = theme === "light" ? "light" : "night";
+  document.body.dataset.theme = normalizedTheme;
+  localStorage.setItem(STORAGE_KEYS.theme, normalizedTheme);
+
+  const isNight = normalizedTheme === "night";
+  themeToggle.setAttribute("aria-pressed", String(isNight));
+  themeToggle.setAttribute("aria-label", isNight ? "切换为白天风格" : "切换为夜晚风格");
+  themeToggle.querySelector(".theme-toggle-text").textContent = isNight ? "Night" : "Day";
+}
+
+function toggleTheme() {
+  applyTheme(document.body.dataset.theme === "night" ? "light" : "night");
+}
 
 function syncHeader() {
   header.classList.toggle("is-scrolled", window.scrollY > 40);
@@ -1126,6 +1176,8 @@ document.querySelectorAll("[data-close]").forEach((button) => {
   button.addEventListener("click", closeProject);
 });
 
+themeToggle.addEventListener("click", toggleTheme);
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal.classList.contains("is-open")) {
     closeProject();
@@ -1185,14 +1237,29 @@ function resetPageCopy() {
   window.location.reload();
 }
 
+function hasEditorEntry() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("admin") === "1" || params.get("edit") === "1" || window.location.hash === "#admin";
+}
+
 function hasEditorAccess() {
-  return new URLSearchParams(window.location.search).get("edit") === "1";
+  return hasEditorEntry() && sessionStorage.getItem(STORAGE_KEYS.adminSession) === "1";
+}
+
+async function sha256(value) {
+  const data = new TextEncoder().encode(value);
+  const digest = await crypto.subtle.digest("SHA-256", data);
+  return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
 function openEditor() {
-  if (!hasEditorAccess()) return;
+  if (!hasEditorEntry()) return;
   editorPanel.classList.add("is-open");
   editorPanel.setAttribute("aria-hidden", "false");
+
+  if (!hasEditorAccess()) {
+    window.setTimeout(() => adminAccessCode?.focus(), 120);
+  }
 }
 
 function closeEditor() {
@@ -1201,10 +1268,15 @@ function closeEditor() {
 }
 
 function syncEditorAccess() {
+  const hasEntry = hasEditorEntry();
   const canEdit = hasEditorAccess();
-  editorToggle.classList.toggle("is-enabled", canEdit);
+  editorToggle.classList.toggle("is-enabled", hasEntry && canEdit);
+  adminLoginSection.hidden = !hasEntry || canEdit;
+  document.querySelectorAll(".admin-secured").forEach((section) => {
+    section.hidden = !canEdit;
+  });
 
-  if (!canEdit) {
+  if (!hasEntry) {
     closeEditor();
     setEditMode(false);
   }
@@ -1215,6 +1287,93 @@ editorClose.addEventListener("click", closeEditor);
 toggleEditModeButton.addEventListener("click", () => setEditMode(!editingEnabled));
 saveCopyButton.addEventListener("click", savePageCopy);
 resetCopyButton.addEventListener("click", resetPageCopy);
+
+adminLoginForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const value = adminAccessCode.value.trim();
+  const hash = await sha256(value);
+
+  if (hash !== ADMIN_ACCESS_HASH) {
+    adminLoginError.hidden = false;
+    adminAccessCode.select();
+    return;
+  }
+
+  sessionStorage.setItem(STORAGE_KEYS.adminSession, "1");
+  adminLoginError.hidden = true;
+  adminLoginForm.reset();
+  syncEditorAccess();
+  openEditor();
+});
+
+adminSignOutButton.addEventListener("click", () => {
+  sessionStorage.removeItem(STORAGE_KEYS.adminSession);
+  setEditMode(false);
+  syncEditorAccess();
+});
+
+function downloadJson(fileName, data) {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = fileName;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
+function exportContentConfig() {
+  downloadJson(`li-jia-portfolio-copy-${new Date().toISOString().slice(0, 10)}.json`, {
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    copy: loadSavedCopy(),
+    uploadedWorks: uploadedWorks.map(({ fileId, ...work }) => work),
+  });
+}
+
+function readJsonFile(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.addEventListener("load", () => {
+      try {
+        resolve(JSON.parse(String(reader.result || "{}")));
+      } catch (error) {
+        reject(error);
+      }
+    });
+    reader.addEventListener("error", reject);
+    reader.readAsText(file);
+  });
+}
+
+async function importContentConfig(file) {
+  const data = await readJsonFile(file);
+
+  if (!data || typeof data.copy !== "object" || Array.isArray(data.copy)) {
+    throw new Error("Invalid copy config");
+  }
+
+  localStorage.setItem(STORAGE_KEYS.copy, JSON.stringify(data.copy));
+  window.location.reload();
+}
+
+exportContentButton.addEventListener("click", exportContentConfig);
+importContentInput.addEventListener("change", async () => {
+  const [file] = importContentInput.files;
+  if (!file) return;
+
+  try {
+    await importContentConfig(file);
+  } catch (error) {
+    console.error("Failed to import content config:", error);
+    window.alert("导入失败，请确认文件是后台导出的 JSON 配置。");
+  } finally {
+    importContentInput.value = "";
+  }
+});
 
 workUploadForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -1245,7 +1404,11 @@ workUploadForm.addEventListener("submit", async (event) => {
 });
 
 async function boot() {
+  applyTheme(getSavedTheme());
   syncEditorAccess();
+  if (hasEditorEntry()) {
+    openEditor();
+  }
   renderShortDramaLibrary();
   prepareEditableElements();
   uploadedWorks = loadUploadedWorks();
